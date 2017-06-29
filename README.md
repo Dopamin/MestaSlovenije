@@ -1,5 +1,5 @@
 # MestaSlovenije
 An android app about Slovenia, its cities and other locations.
 
-#TODO
+# TODO
 Small visible line between triangles when rendering polygons.
