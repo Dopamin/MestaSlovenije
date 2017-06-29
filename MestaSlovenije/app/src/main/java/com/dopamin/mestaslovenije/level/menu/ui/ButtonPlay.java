@@ -1,6 +1,6 @@
 package com.dopamin.mestaslovenije.level.menu.ui;
 
-import android.graphics.Color;
+import android.util.Log;
 
 import com.dopamin.mestaslovenije.graphics.Render;
 import com.dopamin.mestaslovenije.level.menu.MenuLevel;

@@ -55,7 +55,6 @@ public class Level extends UIElement {
 
     @Override
     public boolean processInput(Vector2f input) {
-        Log.d("Level", "Processing input");
         return currentStage.processInput(input);
     }
 

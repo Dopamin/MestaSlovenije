@@ -29,19 +29,17 @@ public class MainActivity extends Activity {
         }
         getWindow().getDecorView().setSystemUiVisibility(UI_OPTIONS);
 
+    }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /*
+            Initialize Game, start the game loop
+            and set view
+        */
         game = new Game(this);
-
-        /* On create is called twice
-            so we init game logic only when
-            this is the first instance,
-            because the thread will be
-            created twice otherwise
-         */
-        if (savedInstanceState == null) {
-            game.startGameLoop();
-        }
+        game.startGameLoop();
         setContentView(game);
     }
 

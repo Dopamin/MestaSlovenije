@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 
 import com.dopamin.mestaslovenije.graphics.Render;
@@ -58,7 +59,7 @@ public class Game extends View implements Time {
 
     Thread updateThread = new Thread() {
         @Override
-        public synchronized void run() {
+        public void run() {
             super.run();
             float timerStart = System.nanoTime() / 1000000000.0f;
             while (running) {

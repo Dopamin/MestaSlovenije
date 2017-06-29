@@ -69,4 +69,7 @@ public class Vector2f {
         return (float) Math.atan(y / x);
     }
 
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
+    }
 }
