@@ -56,7 +56,6 @@ public class Game extends View implements Time {
         updateThread.start();
     }
 
-
     Thread updateThread = new Thread() {
         @Override
         public void run() {
@@ -64,12 +63,12 @@ public class Game extends View implements Time {
             float timerStart = System.nanoTime() / 1000000000.0f;
             while (running) {
                 float timerNow = System.nanoTime() / 1000000000.0f;
-                if (timerNow - timerStart >= 1 / 60.0) {
+                if (timerNow - timerStart >= 1 / 30.0) {
                     update(timerNow - timerStart);
                     timerStart = System.nanoTime() / 1000000000.0f;
-                    try {
-                        Thread.sleep(10);
-                    } catch (Exception e) {
+                    try{
+                        Thread.sleep(15);
+                    }catch (Exception e){
                         e.printStackTrace();
                     }
                     Thread.yield();
@@ -91,12 +90,6 @@ public class Game extends View implements Time {
 
         currentMenu.update();
         currentMenu.updateChildren();
-
-        // Check for input
-        if (Input.ready()) {
-            Vector2f input = Input.get();
-            currentMenu.processInput(input);
-        }
     }
 
     Paint paint = new Paint();
@@ -104,6 +97,15 @@ public class Game extends View implements Time {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
+        /*  Checking for input.
+            Input needs to be done in the main thread
+            for full responsiveness.
+         */
+        if (Input.ready()) {
+            Vector2f input = Input.get();
+            currentMenu.processInput(input);
+        }
 
         render.begin(canvas, paint);
         canvas.save();
