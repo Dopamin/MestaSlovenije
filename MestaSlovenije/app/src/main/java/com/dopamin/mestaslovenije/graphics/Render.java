@@ -76,14 +76,19 @@ public class Render {
         canvas.rotate(rotation * 180 / 3.14f); // Convert to degrees
 
         paint.setColor(Color.parseColor(color));
+        paint.setStyle(Paint.Style.FILL);
+
+        Path path = new Path();
+        path.setFillType(Path.FillType.EVEN_ODD); // Odd number of vertices
+        path.moveTo(p.VERTICES[0].x, p.VERTICES[0].y);
 
         // Draw the individual vertices triangles with vertices
-        float[] v = p.VERTICES;
-        for (int i = 0; i < p.VERTICES_COUNT - 2; i++) {
-            int t = 2 * (i + 1);
-            triangle(v[0], v[1], v[t], v[t + 1], v[t + 2], v[t + 3]);
+        for (int i = 0; i < p.VERTICES_COUNT; i += 1) {
+            path.lineTo(p.VERTICES[i].x, p.VERTICES[i].y);
         }
 
+        path.lineTo(p.VERTICES[0].x, p.VERTICES[0].y);
+        canvas.drawPath(path, paint);
         canvas.restore();
     }
 
@@ -117,24 +122,11 @@ public class Render {
         // The draw method requires rotation in degrees.
         rotation = rotation * 180f / 3.14f;
         canvas.save();
-        canvas.translate(x + w/2, y + h/2);
+        canvas.translate(x + w / 2, y + h / 2);
         canvas.rotate(rotation);
         canvas.drawBitmap(texture, -w / 2, -h / 2, paint);
 
         canvas.restore();
-    }
-
-    // Draw a triangle
-    public void triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
-        Path path = new Path();
-        path.setFillType(Path.FillType.EVEN_ODD); // Odd number of vertices
-        path.moveTo(x1, y1);
-        path.lineTo(x2, y2);
-        path.lineTo(x3, y3);
-        path.lineTo(x1, y1);
-        path.close();
-
-        canvas.drawPath(path, paint);
     }
 
 }
