@@ -1,0 +1,12 @@
+- Oblikovanje glavnega menija
+- Poravnava imena kraja. Ime naj bo delno transparentno. Daljsa imena v krajsem fontu, da ne gre predalec. Lahko je center alligned
+- Score display - omejen na 1 decimalko. V kilometrih naj bo pripona.
+- Namesto krogcev krizec za pravilno lokacijo. 
+- Animacija crte proti pravi lokaciji. Kratka in s klikom se prekine
+
+- Zaslon z rezultati. Vidne naj bodo posamezne zgresitve na stopnjo. Igralec vidi, ce je napredoval - koliko mu je zmanjkalo
+- Omejitev tock za napredovanje stopnje
+
+- Highscore v glavnem meniju. Po igri se shrani.
+
+- Drug font?
