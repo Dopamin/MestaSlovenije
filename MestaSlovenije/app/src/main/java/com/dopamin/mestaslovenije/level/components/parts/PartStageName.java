@@ -1,5 +1,7 @@
 package com.dopamin.mestaslovenije.level.components.parts;
 
+import android.graphics.Paint;
+
 import com.dopamin.mestaslovenije.graphics.Render;
 import com.dopamin.mestaslovenije.level.components.Stage;
 import com.dopamin.mestaslovenije.math.Vector2f;
@@ -12,7 +14,7 @@ public class PartStageName extends Part {
     public PartStageName(Stage s) {
         super(s);
 
-        timers.add(new TimerLimit(0.5f, new Action() {
+        timers.add(new TimerLimit(3f, new Action() {
             @Override
             public void execute() {
                 stage.nextQuestion();
@@ -27,7 +29,7 @@ public class PartStageName extends Part {
 
     @Override
     public void render(Render r) {
-        r.drawText("BLA" + stage.name, "#000000", 100, 450, 64);
+        r.drawText(stage.name, "#000000", Render.WIDTH / 2, Render.HEIGHT / 2, 120, Paint.Align.CENTER);
     }
 
 }

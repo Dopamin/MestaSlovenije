@@ -1,6 +1,7 @@
 package com.dopamin.mestaslovenije.level.components.parts;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 
 import com.dopamin.mestaslovenije.graphics.Render;
@@ -33,7 +34,9 @@ public class PartQuestion extends Part {
 
     @Override
     public void render(Render r) {
-        r.drawText("" + question.location.name, "#000000", 500, 450, 128);
+        r.alpha(128);
+        r.drawText("" + question.location.name, "#000000", Render.WIDTH / 2 - 150, Render.HEIGHT / 2, (int)(128 - question.location.name.length() * 2.5), Paint.Align.CENTER);
+        r.alpha(255);
     }
 
     public Question getQuestion() {

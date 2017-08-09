@@ -22,6 +22,8 @@ public class Render {
     Canvas canvas;
     Paint paint;
 
+    int alpha = 255;
+
     public Render(Context context) {
         /*
            Get actual screen dimensions - it depends on Android version,
@@ -47,9 +49,21 @@ public class Render {
         this.paint = paint;
     }
 
-    public void drawText(String text, String color, float x, float y, int size) {
+    // Get alpha
+    public int alpha (){
+        return alpha;
+    }
+
+    // Set alpha
+    public void alpha(int a){
+        alpha = a;
+    }
+
+    public void drawText(String text, String color, float x, float y, int size, Paint.Align align) {
         paint.setColor(Color.parseColor(color));
+        paint.setAlpha(alpha);
         paint.setTextSize(size);
+        paint.setTextAlign(align);
         canvas.drawText(text, x, y, paint);
     }
 
@@ -76,6 +90,7 @@ public class Render {
         canvas.rotate(rotation * 180 / 3.14f); // Convert to degrees
 
         paint.setColor(Color.parseColor(color));
+        paint.setAlpha(alpha);
         paint.setStyle(Paint.Style.FILL);
 
         Path path = new Path();

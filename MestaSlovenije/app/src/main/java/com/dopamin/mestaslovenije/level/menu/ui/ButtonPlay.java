@@ -1,5 +1,7 @@
 package com.dopamin.mestaslovenije.level.menu.ui;
 
+import android.graphics.Paint;
+
 import com.dopamin.mestaslovenije.graphics.Render;
 import com.dopamin.mestaslovenije.level.menu.MenuLevel;
 import com.dopamin.mestaslovenije.math.Vector2f;
@@ -20,7 +22,7 @@ public class ButtonPlay extends Button {
 	@Override
 	public void render(Render r) {
 		super.render(r);
-		r.drawText("IGRAJ", "#000000", pos.x + size.x / 2, pos.y + size.y / 2, 64);
+		r.drawText("IGRAJ", "#000000", pos.x + size.x / 2, pos.y + size.y * 3 / 4, 64, Paint.Align.CENTER);
 
 	}
 
